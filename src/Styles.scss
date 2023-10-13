@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-family: Tahoma;
+    height: 100vh;
+    flex-direction: column;
+    gap: 10px;
+    .header{
+        width: 100%;
+        text-align: center;
+        button{
+            width: 70%;
+            padding: 5px;
+            color: white;
+            font-size: medium;
+            border-radius: 7px;
+            background-color: rgb(5, 5, 64);
+            &:focus{
+                transform: scale(0.9);
+            }
+        }
+
+    }
+    .CreateView{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        gap: 50px;
+        height: 100vh;
+        background-color: rgba(0,0,0, 0.9);
+        border: 1px solid;
+        position: absolute;
+        .closeBtn{
+            cursor: pointer;
+        }
+        .AddBox{
+            border: 1px solid;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            .input{
+                display: flex;
+                width: auto;
+                padding: 5px;
+                gap: 5px;
+                input{
+                    border-radius: 6px;
+                    padding: 5px;
+                    text-transform: capitalize;
+                    outline: none;
+                }
+                button{
+                    padding: 6px;
+                    background-color: rgb(32, 31, 31);
+                    color: white;
+                    border-radius: 5px;
+                    &:focus{
+                        transform: scale(0.9);
+                    }
+                }
+            }
+        }
+    }
+    .main{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        .EditView{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            gap: 50px;
+            height: 100%;
+            background-color: white;
+            border: 1px solid;
+            position: absolute;
+            .closeBtn{
+                cursor: pointer;
+                color: rgb(33, 32, 32);
+                font-weight: 800;
+            }
+            input{
+                padding: 10px;
+                width: fit-content;
+            }
+            button{
+                padding: 5px;
+                width: 50px;
+                background-color: rgb(238, 238, 238);
+                color: black;
+                border-radius: 6px;
+                border: 1px solid white;
+                &:focus{
+                    transform: scale3d(0.25);
+                }
+            }
+        }
+        .task{
+            display: flex;
+            height: auto;
+            padding: 10px;
+            align-items: center;
+            border: 2px solid rgba(0,0,0, 0.9);
+            border-radius: 6px;
+            width: 70%;
+            justify-content: space-between;
+            .editDelete{
+                display: flex;
+                gap: 5px;
+                // .fi{
+                //     font-size: 15px;
+                // }
+            }
+            button:nth-child(1){
+                outline: none;
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+                &:hover{
+                    color: rgb(131, 241, 215);
+                }
+            }
+            button:nth-child(2){
+                outline: none;
+                border: none;
+                background-color: transparent;
+                font-size: 20px;
+                &:hover{
+                    color: rgb(191, 22, 22);
+                }
+            }
+            
+        }
+    }
+}
