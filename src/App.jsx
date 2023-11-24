@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Styles.scss";
 
 
@@ -10,6 +10,7 @@ const TodoList = () => {
   const [edit, setEdit] = useState(false);
   const [editedTaskText, setEditedTaskText] = useState("");
   const [editingTaskId, setEditingTaskId] = useState(null); 
+  const inputRef = useRef(null);
 
 useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
@@ -18,8 +19,7 @@ useEffect(() => {
     }
   }, []);
 
-
-
+  
   const task = { id: Date.now(), text: value};
   
   const addTask = () => {
@@ -47,6 +47,7 @@ useEffect(() => {
     }else{
       setAdd(false)
     }
+    inputRef.current.focus();
 }
   const EditTaskView = () =>{
     if(edit == false){
@@ -65,6 +66,9 @@ const EditTask = (taskId) => {
   }
 }
 
+useEffect(() => {
+  inputRef.current?.focus();
+},[edit]);
 
 const saveEdit = () => {
   if (editingTaskId) {
@@ -99,6 +103,7 @@ const saveEdit = () => {
           <div className="input">
           <input
             type="text"
+            ref={inputRef}
             value={value}
             onChange={(e) => setValue(e.target.value)}
             required
@@ -119,7 +124,7 @@ const saveEdit = () => {
       <div className="EditView">
       <p onClick={EditTaskView} className="closeBtn"><i class="fi fi-rr-cross"></i></p>
           <button onClick={() => saveEdit(list.id)} >Save</button>
-          <input type="text" value={editedTaskText} onChange={(e) => setEditedTaskText(e.target.value) } required />
+          <input type="text" ref={inputRef} value={editedTaskText} onChange={(e) => setEditedTaskText(e.target.value) } required />
       </div>
 
 
